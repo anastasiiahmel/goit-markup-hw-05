@@ -80,7 +80,7 @@ button {
   padding-right: 15px;
   margin: 0 auto;
 }
-/*-------------------------------------header--------------------------------------*/
+/*-------------------------------------------------------------header--------------------------------------------------------------*/
 
 .header {
   background: var(--color-white, #ffffff);
@@ -116,7 +116,6 @@ button {
 }
 
 .header-text {
-  position: relative;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
@@ -124,21 +123,26 @@ button {
   color: var(--color-grey, #2e2f42);
   transition: color var(--transition);
 }
-.header-text:hover,
-.header-text:focus {
-  color: var(--color-ocean, #404bbf);
-}
-
 .studio::after {
   position: absolute;
+  left: 0;
+  bottom: -26px;
   content: "";
-  width: 48px;
+  width: 100%;
   height: 4px;
-  display: block;
+
   background-color: #404bbf;
   border-radius: 2px;
-  top: 43px;
 }
+.studio {
+  position: relative;
+  color: var(--color-ocean);
+}
+.header-text:hover,
+.header-text:focus {
+  color: var(--color-ocean);
+}
+
 .header-contacts {
   font-style: normal;
   display: flex;
@@ -176,7 +180,7 @@ button {
   gap: 40px;
 }
 
-/*-------------------------------------hero--------------------------------------*/
+/*--------------------------------------------hero--------------------------------------------------------------------------------*/
 .hero {
   background-color: var(--color-grey, #2e2f42);
   background-image: linear-gradient(
@@ -232,9 +236,9 @@ button {
 
 .hero-btn:hover,
 .hero-btn:focus {
-  background-color: var(--color-ocean, #404bbf);
+  background-color: var(--color-ocean);
 }
-/*-------------------------------------features--------------------------------------*/
+/*---------------------------------------------features------------------------------------------------------------------------------*/
 
 .features-subtitle {
   font-weight: 500;
@@ -277,7 +281,7 @@ button {
   margin-bottom: 8px;
 }
 
-/*-------------------------------------examples--------------------------------------*/
+/*----------------------------------------------------------examples-----------------------------------------------------------*/
 
 .examples {
   font-weight: 700;
@@ -303,7 +307,7 @@ button {
 
 .examples-img {
 }
-/*-------------------------------------team--------------------------------------*/
+/*---------------------------------------------team--------------------------------------------------------------------------------*/
 
 .team-list {
   list-style: none;
@@ -391,7 +395,7 @@ button {
   height: 16px;
 }
 
-/* ---------------customers------------------ */
+/* -----------------------------------------------------------customers-------------------------------------------------------- */
 .customers {
   font-weight: 700;
   font-size: 36px;
@@ -434,7 +438,7 @@ button {
   fill: currentColor;
 }
 
-/* ---------------footer------------------ */
+/* ----------------------------------------------------footer------------------------------------------------------------------ */
 
 .footer {
   background: var(--color-grey, #2e2f42);
@@ -526,4 +530,62 @@ button {
 }
 .footer-soc-cont {
   display: flex;
+}
+
+/* ----------------------------------------------------modal------------------------------------------------------------------ */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+  transition: opacity var(--transition), visibility var(--transition);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #ffffff;
+  width: 408px;
+  height: 576px;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform var(--transition);
+}
+
+.backdrop .is-hidden .modal {
+  transform: translate(-50%, -50%) scaleY(0);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  padding: 0;
+  transition: fill var(--transition);
+}
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  background-color: #404bbf;
+  fill: currentColor;
+}
+.modal-close-btn {
+  background-color: #e7e9fc;
+}
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
